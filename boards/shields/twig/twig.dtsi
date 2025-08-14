@@ -5,7 +5,8 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <boards/arm/nice_nano/arduino_pro_micro_pins.dtsi>
+#include <boards/arm/arduino_pro_micro_pins.dtsi>
+
 
 
 / {
