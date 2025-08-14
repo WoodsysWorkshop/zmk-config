@@ -1,6 +1,6 @@
 file_format: "1"
-id: corne
-name: Corne
+id: twig
+name: Twig
 type: shield
 url: https://github.com/WoodsysWorkshop/zmk_config
 requires: [pro_micro]
@@ -8,8 +8,6 @@ exposes: [i2c_oled]
 features:
   - keys
   - display
-  - underglow
-  - studio
 siblings:
   - twig_left
   - twig_right
