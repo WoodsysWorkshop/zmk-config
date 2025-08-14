@@ -1,0 +1,6 @@
+&i2c0 {
+    status = "okay";
+    sda-pin = <17>; /* P0.17 (D2) */
+    scl-pin = <20>; /* P0.20 (D3) */
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+};
