@@ -13,25 +13,3 @@
                 <&pro_micro 10 GPIO_ACTIVE_HIGH>; // col 5
 };
 
-/* OLED on right half (optional; if you only want one, remove this block) */
-&pro_micro_i2c {
-    status = "okay";
-
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <32>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-    };
-};
-
-&{/chosen} {
-    zmk,display = &oled;
-};
