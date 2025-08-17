@@ -5,6 +5,9 @@ manifest:
     # support nice_oled and nice_epaper
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    # analog stick support
+    - name: badjeff
+      url-base: https://github.com/badjeff
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -13,6 +16,10 @@ manifest:
     # support nice_oled and nice_epaper
     - name: zmk-nice-oled
       remote: mctechnology17
+      revision: main
+    # analog stick support
+    - name: zmk-analog-input-driver
+      remote: badjeff
       revision: main
   self:
     path: config

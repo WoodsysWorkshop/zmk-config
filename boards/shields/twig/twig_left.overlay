@@ -1,4 +1,5 @@
 #include "twig.dtsi"
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &default_kscan {
     col-gpios = <&pro_micro 19 GPIO_ACTIVE_HIGH>, // col 0
@@ -7,4 +8,37 @@
                 <&pro_micro 14 GPIO_ACTIVE_HIGH>, // col 3
                 <&pro_micro 16 GPIO_ACTIVE_HIGH>, // col 4
                 <&pro_micro 10 GPIO_ACTIVE_HIGH>; // col 5
+};
+
+&adc {
+    status = "okay";
+};
+
+/ {
+    anin0: analog_input_0 {
+        compatible = "zmk,analog-input";
+        sampling-hz = <50>;
+
+        x-ch {
+            io-channels = <&adc 7>; // P0.31 = AIN7
+            mv-mid = <1650>;        // We'll calibrate this
+            mv-min-max = <1600>;
+            mv-deadzone = <100>;    // Large deadzone for now
+            scale-multiplier = <1>;
+            scale-divisor = <70>;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_X>;
+        };
+
+        y-ch {
+            io-channels = <&adc 5>; // P0.29 = AIN5
+            mv-mid = <1650>;
+            mv-min-max = <1600>;
+            mv-deadzone = <100>;
+            scale-multiplier = <1>;
+            scale-divisor = <70>;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_Y>;
+        };
+    };
 };
