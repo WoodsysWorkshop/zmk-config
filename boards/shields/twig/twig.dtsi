@@ -7,12 +7,16 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "twig-layouts.dtsi"
 
+&twig_layout {
+    transform = <&default_transform>;
+};
+
 
 / {
     chosen {
         zephyr,display = &oled;
-        zmk,kscan = &default_kscan;
-        zmk,matrix_transform = &default_transform;
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &twig_layout;
     };
 
     default_transform: keymap_transform_0 {
@@ -33,9 +37,8 @@
         >;
     };
 
-    default_kscan: kscan {
+    kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan";
         diode-direction = "col2row";
 
         row-gpios = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
